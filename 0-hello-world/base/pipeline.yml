@@ -11,6 +11,8 @@ spec:
       taskRef:
         name: echo
     - name: world
+      runAfter:
+        - hello
       params:
         - name: msg
           value: World
