@@ -1,0 +1,57 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: workshop-rht-app
+spec:
+  params:
+  - name: URL
+    description: App's Git URL
+    type: string
+  - name: IMAGE
+    description: Location of the repo where image has to be pushed
+    type: string
+  - name: BUILDER_IMAGE
+    description: Location of the builder image
+    type: string
+  workspaces:
+  - name: shared-workspace
+  tasks:
+  - name: fetch-repository
+    taskRef:
+      name: git-clone
+    workspaces:
+    - name: output
+      workspace: shared-workspace
+    params:
+    - name: url
+      value: $(params.URL)
+    - name: subdirectory
+      value: ""
+    - name: deleteExisting
+      value: "true"
+  - name: build
+    runAfter:
+      - fetch-repository
+    taskRef:
+      name: maven-1.7
+    workspaces:
+      - name: source
+        workspace: shared-workspace
+    params:
+    - name: GOALS
+      value:
+      - clean
+      - package
+  - name: s2i
+    runAfter:
+      - build
+    taskRef:
+      name: s2i-java
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    params:
+    - name: IMAGE
+      value: $(params.IMAGE)
+    - name: BUILDER_IMAGE
+      value: $(params.BUILDER_IMAGE)
