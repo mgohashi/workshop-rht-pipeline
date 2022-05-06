@@ -10,9 +10,6 @@ spec:
   - name: IMAGE
     description: Location of the repo where image has to be pushed
     type: string
-  - name: BUILDER_IMAGE
-    description: Location of the builder image
-    type: string
   workspaces:
   - name: shared-workspace
   - name: maven-settings
