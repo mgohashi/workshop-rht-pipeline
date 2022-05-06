@@ -37,8 +37,10 @@ spec:
       name: maven-1-7-0
       kind: ClusterTask
     workspaces:
-      - name: source
-        workspace: shared-workspace
+    - name: maven-settings
+      workspace: maven-settings
+    - name: source
+      workspace: shared-workspace
     params:
     - name: GOALS
       value:
