@@ -5,7 +5,7 @@ metadata:
 spec:
   # Use service account with git and image repo credentials
   serviceAccountName: pipeline
-  pipelineRunRef:
+  pipelineRef: 
     name: workshop-rht-app
   params:
   - name: URL
