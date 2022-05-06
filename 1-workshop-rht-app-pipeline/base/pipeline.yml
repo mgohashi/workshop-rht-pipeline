@@ -35,6 +35,7 @@ spec:
       - fetch-repository
     taskRef:
       name: maven-1.7
+      kind: ClusterTask
     workspaces:
       - name: source
         workspace: shared-workspace
