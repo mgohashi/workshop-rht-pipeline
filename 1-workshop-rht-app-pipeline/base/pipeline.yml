@@ -15,6 +15,7 @@ spec:
     type: string
   workspaces:
   - name: shared-workspace
+  - name: maven-settings
   tasks:
   - name: fetch-repository
     taskRef:
