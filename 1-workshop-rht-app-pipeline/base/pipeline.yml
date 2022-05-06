@@ -49,6 +49,7 @@ spec:
       - build
     taskRef:
       name: s2i-java
+      kind: ClusterTask
     workspaces:
     - name: source
       workspace: shared-workspace
