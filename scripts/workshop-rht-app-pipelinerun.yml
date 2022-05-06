@@ -10,8 +10,6 @@ spec:
   params:
   - name: URL
     value: https://github.com/mgohashi/workshop-rht-app.git
-  - name: BUILDER_IMAGE
-    value: default-route-openshift-image-registry.apps.cluster-dfkdw.dfkdw.sandbox1648.opentlc.com/test-app/openjdk-17
   - name: IMAGE
     value: image-registry.openshift-image-registry.svc:5000/test-app/workshop-rht-app
   workspaces:

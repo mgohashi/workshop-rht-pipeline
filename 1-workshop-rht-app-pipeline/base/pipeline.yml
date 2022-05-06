@@ -59,5 +59,3 @@ spec:
     params:
     - name: IMAGE
       value: $(params.IMAGE)
-    - name: BUILDER_IMAGE
-      value: $(params.BUILDER_IMAGE)
