@@ -51,7 +51,7 @@ spec:
     runAfter:
       - build
     taskRef:
-      name: s2i-java
+      name: s2i-java-1-7-0
       kind: ClusterTask
     workspaces:
     - name: source
