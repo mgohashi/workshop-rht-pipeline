@@ -34,7 +34,7 @@ spec:
     runAfter:
       - fetch-repository
     taskRef:
-      name: maven-1.7
+      name: maven-1-7-0
       kind: ClusterTask
     workspaces:
       - name: source
