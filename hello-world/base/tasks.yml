@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: echo
+spec:
+  params:
+    - name: msg
+      type: string
+  steps:
+    - name: echo
+      image: ubuntu
+      command:
+        - /bin/bash
+      args: ['-c', 'echo $(params.msg)']
